@@ -1,0 +1,51 @@
+//Event lisstner for note list
+var goToNote = document.getElementsByClassName("notes-content");
+for(var i = 0 ; i < goToNote.length; i++){
+    goToNote[i].addEventListener("click",function(event){
+        console.log(event)
+        if(event.path[0].nodeName === "ARTICLE"){
+            let id = event.path[0].id;
+            sessionStorage.setItem("currentnoteId",id);
+            loadNote(id);
+        }else if(event.path[1].nodeName === "ARTICLE"){
+            let id = event.path[1].id
+            sessionStorage.setItem("currentnoteId",id)
+            loadNote(id);
+        }else if(event.path[2].nodeName === "ARTICLE"){
+            let id = event.path[2].id
+            sessionStorage.setItem("currentnoteId",id)
+            loadNote(id);
+        }else if(event.path[3].nodeName === "ARTICLE"){
+            let id = event.path[3].id
+            sessionStorage.setItem("currentnoteId",id)
+            loadNote(id);
+        }else if(event.path[4].nodeName === "ARTICLE"){
+            let id = event.path[4].id
+            sessionStorage.setItem("currentnoteId",id)
+            loadNote(id);
+        }
+    },false)}
+
+
+    $('.optlogo').on('click',function(e){
+        let id = e.currentTarget.id
+        console.log(id)
+        let mdcursor = document.querySelector(".tmarkdown").selectionStart
+        let mdcontent = $('.tmarkdown').val()
+      
+        if(id=="simage"){
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+"![Alt text](http://192.168.1.106:5000/api/v1/image/)"+mdcontent.slice(mdcursor));
+        }else if(id == "sblock"){
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+"> "+mdcontent.slice(mdcursor));
+        }else if(id == "stable"){
+          let elem = "|   |   |" + "\n" +"| --- | --- |" + "\n" + "|   |   |"
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+elem+mdcontent.slice(mdcursor));
+        }else if(id == "slist"){
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+"- "+mdcontent.slice(mdcursor));
+        }else if(id == "scode"){
+          let elem = "```"+"\n\n"+"```"
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+elem+mdcontent.slice(mdcursor));
+        }else if(id == "slink"){
+          $('.tmarkdown').val(mdcontent.slice(0,mdcursor)+"[text](link)"+mdcontent.slice(mdcursor));
+        }
+      })

@@ -1,0 +1,43 @@
+<body>
+    <div class="enm">
+        <div class="enmc">
+            <label class="enmctitle">Title</label>
+            <input class="input" id="enmtitle" type="text" />
+            <label class="anmcdesc">Description</label>
+            <textarea class="input" id="enmdesc" rows="10" cols="25"></textarea>
+            <button id="submitEditNote">Submit</button>
+        </div> 
+    </div>
+    
+    <style>
+    .enmc{
+        display:flex;
+        flex-direction: column;
+        background-color:#17141d;
+        height:500px;
+        width:600px;
+        color:#fff;
+        align-items: center;
+        border-radius:5px;
+    }
+    .enmc{
+        padding-top:50px;
+    }
+    /* .addNoteModal .input {
+      font-size: 16px;
+      font-size: max(16px, 1em);
+      font-family: inherit;
+      padding: 5rem;
+      background-color: #fff;
+      border: 2px solid var(--input-border);
+      border-radius: 4px;
+      width:100px;
+    } */
+    
+    .enm .input:focus {
+      border-color: hsl(245,100%,42%);
+      box-shadow: 0 0 0 3px hsla(245,100%,82%,0.8);
+      outline: 3px solid transparent;
+    }
+    </style>
+</body>
